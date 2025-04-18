@@ -1,0 +1,101 @@
+/* side-nav.component.css */
+
+.side-nav {
+    position: fixed;
+    top: 50%;
+    left: 25px;
+    transform: translateY(-50%);
+    width: 80px;
+    height: 620px;
+    background: linear-gradient(135deg, #1b1b2f, #2a2a40);
+    backdrop-filter: blur(50px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 3.5rem;
+    z-index: 1000;
+    border-radius: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: auto;
+  }
+  
+  .no-underline {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    align-items: center;
+  }
+  
+  .nav-profile {
+    position: flex;
+    width: auto;
+    height: 60px;
+    cursor: pointer;
+    overflow: visible;
+  }
+  
+  .nav-hover {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: transparent;
+    color: white;
+    padding: 10px;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    position: relative;
+    cursor: pointer;
+  }
+  
+  .nav-icon img {
+    width: 24px;
+    height: 24px;
+    border-radius: 5%;
+    margin-left: 15px;
+  }
+  
+  .nav-label {
+    font-weight: bold;
+    font-size: 14px;
+    opacity: 0;
+    max-width: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+  
+  .nav-profile:hover .nav-hover {
+    background: linear-gradient(135deg, #c2f0f7, #e2d1f9);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    padding: 10px 20px;
+  }
+  
+  .nav-profile:hover .nav-label {
+    opacity: 1;
+    max-width: 200px;
+  }
+  .nav-logo img:hover {
+  transform: scale(1.1);
+}
+.side-container {
+  position: fixed;
+  top: 50%;
+  left: 25px;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1001;
+}
+
+.nav-logo {
+  margin-bottom: 45rem;
+  margin-left: 2rem;
+}
+
+.nav-logo img {
+  width: 70px;
+  height: auto;
+  transition: transform 0.3s ease;
+}
