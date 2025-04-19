@@ -54,6 +54,7 @@
     height: 24px;
     border-radius: 5%;
     margin-left: 15px;
+    filter: brightness(0) invert(1); /* makes image white */
   }
   
   .nav-label {
