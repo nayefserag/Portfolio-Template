@@ -1,1 +1,77 @@
-<p>portofolio works!</p>
+<app-side-nav></app-side-nav>
+
+
+<section class="portfolio-section" id="portfolio">
+    <h2 class="section-title">My Projects</h2>
+    <div class="projects-grid">
+      <div class="project-card" *ngFor="let project of projects" (click)="openOverview(project)">
+        <div class="card-image">
+          <img [src]="project.image" [alt]="project.name" />
+          <div class="overlay">
+            <button class="overview-button">Overview</button>
+          </div>
+        </div>
+        <div class="card-content">
+          <h3>{{ project.name }}</h3>
+          <p>{{ project.description }}</p>
+          <div class="tags">
+            <span class="tag" *ngFor="let tag of project.tags">
+              <i [class]="tag.icon" class="tag-icon"></i> {{ tag.label }}
+            </span>
+          </div>
+        </div>
+      </div>
+      <div 
+  class="modal-backdrop" 
+  *ngIf="shouldDisplayModal" 
+  [ngClass]="{ 'fade-out': isClosing }" 
+  (click)="closeOverview()"
+>
+      <div 
+        class="modal-content" 
+        [ngClass]="{ 'fade-out-content': isClosing }" 
+        (click)="$event.stopPropagation()"
+      >
+          <div class="modal-grid">
+            <div class="modal-image">
+              <img [src]="selectedProject.image" [alt]="selectedProject.name" />
+            </div>
+            <div class="modal-details">
+              <h2>{{ selectedProject.name }}</h2>
+              <p>{{ selectedProject.description }}</p>
+              <p [innerHTML]="selectedProject.fullDescription"></p>
+              <div class="tags">
+                <span class="tag" *ngFor="let tag of selectedProject.tags">
+                  <i [class]="tag.icon" class="tag-icon"></i> {{ tag.label }}
+                </span>
+              </div>
+              <div class="modal-actions">
+                <a [href]="selectedProject.github" target="_blank" class="github-button">See on GitHub</a>
+                <button class="close-button" (click)="closeOverview()">Close</button>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      
+    </div>
+    <div class="see-more-container">
+      <div class="see-more-button-wrapper">
+        <div class="orbit-dot"></div>
+        <div class="orbit-track">
+        </div>
+        <a href="https://github.com/your-username" target="_blank" class="see-more-button">
+          <span class="animated-text">
+            <span>S</span><span>e</span><span>e</span>&nbsp;
+            <span>M</span><span>o</span><span>r</span><span>e</span>&nbsp;
+            <span>P</span><span>r</span><span>o</span><span>j</span><span>e</span><span>c</span><span>t</span><span>s</span>&nbsp;
+            <span>o</span><span>n</span>&nbsp;
+            <span>G</span><span>i</span><span>t</span><span>H</span><span>u</span><span>b</span>
+          </span>
+        </a>
+      </div>
+    </div>
+   
+  </section>

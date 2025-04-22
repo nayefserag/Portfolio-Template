@@ -1,15 +1,18 @@
 .about-section {
-  padding: 4rem 2rem;
+  padding:2rem;
+  padding-top: 1rem;
+  padding-left: 10rem;
 }
 
 .about-container {
-  max-width: 1200px;
-  margin: 0 auto;
+  max-width: 1350px;
+  margin: auto;
   background: rgba(255, 255, 255, 0.05);
   border-radius: 30px;
   backdrop-filter: blur(10px);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   padding: 0rem 2rem;
+  padding-top: 0.5rem;
   position: relative;
   z-index: 1;
 }
@@ -48,7 +51,8 @@ font-family: 'Montserrat';
   text-align: center;
   font-weight: 600;
   color: #ffffff;
-  margin-bottom: 1.5rem;
+  margin-bottom: .5rem;
+  margin-top: .5rem;
 }
 
 .divider {

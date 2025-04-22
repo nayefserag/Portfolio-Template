@@ -1,0 +1,389 @@
+/* Portfolio Section Styles */
+.portfolio-section {
+  padding: 2rem;
+  padding-top: 1rem;
+  padding-left: 12rem;
+  padding-right: 1rem;
+}
+
+
+.section-title {
+  font-family: 'Poetsen One', cursive;
+  font-size: 2.8rem;
+  margin-bottom: 2rem;
+  color: #eeeeee;
+  letter-spacing: 1.5px;
+  text-shadow: 
+    0 0 10px rgba(0, 255, 255, 0.7), 
+    0 0 25px rgba(122, 0, 255, 0.5),
+    0 6px 12px rgba(0, 0, 0, 0.3);
+  animation: floatSmooth 3s ease-in-out infinite;
+}
+
+/* Projects Grid Layout */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(200px, 1fr));
+  gap: 1rem;
+  
+}
+
+@media (max-width: 1024px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Project Card Styles */
+.project-card {
+  width: 90%;
+  background: white;
+  border-radius: 16px 16px 8px 8px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  transform: scale(0.9);
+}
+
+.project-card:hover {
+  transform: translateY(-8px) scale(0.9);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.15);
+}
+
+.card-image {
+  position: relative;
+  height: 140px;
+  overflow: hidden;
+  background-color: #1a1a2e; // A dark violet-blue that complements your theme
+  border-bottom: 2px solid rgba(255, 255, 255, 0.05); // Optional for subtle separation
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.project-card:hover .card-image img {
+  transform: scale(1.03);
+  filter: grayscale(70%);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.3s ease;
+}
+
+.project-card:hover .overlay {
+  opacity: 1;
+}
+
+.overview-button {
+  padding: 0.6rem 1.4rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background: linear-gradient(135deg, #7a00ff, #00eaff, #00ffc8);
+  background-size: 300% 300%;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.overview-button:hover {
+  animation: moveGradient 4s ease infinite;
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.4),
+              0 0 35px rgba(122, 0, 255, 0.4);
+}
+
+.card-content {
+  padding: 1.5rem;
+}
+
+.card-content h3 {
+  font-size: 1.6rem;
+  color: #111;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+.card-content p {
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  background: #eef4f8;
+  color: #333;
+  font-size: 0.8rem;
+  border-radius: 12px;
+  padding: 0.3rem 0.75rem;
+}
+
+.tag-icon {
+  margin-right: 6px;
+  font-size: 0.9rem;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover .tag-icon {
+  animation: iconBounce 1s ease forwards;
+}
+
+/* Modal Styles */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeInBackdrop 0.4s ease forwards;
+}
+
+.modal-backdrop.fade-out {
+  animation: fadeOutBackdrop 0.4s ease forwards;
+}
+
+.modal-content {
+  background: #fff;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 800px;
+  overflow: hidden;
+  animation: fadeZoomIn 0.4s ease forwards;
+}
+
+.modal-content.fade-out-content {
+  animation: fadeZoomOut 0.4s ease forwards;
+}
+
+.modal-grid {
+  display: flex;
+  flex-direction: row;
+}
+
+.modal-image {
+  flex: 1;
+  background: #000;
+}
+
+.modal-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.modal-details {
+  flex: 2;
+  padding: 2rem;
+}
+
+.modal-details h2 {
+  margin-top: 0;
+  font-size: 1.8rem;
+  color: #333;
+}
+
+.modal-details p {
+  color: #555;
+  margin: 1rem 0;
+  font-size: 1rem;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.github-button {
+  padding: 0.6rem 1.4rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #24292e, #0366d6);
+  background-size: 300% 300%;
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.github-button:hover {
+  animation: moveGradient 4s ease infinite;
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 0 20px rgba(0, 123, 255, 0.4),
+              0 0 35px rgba(36, 41, 46, 0.4);
+}
+
+/* See More Button Styles */
+.see-more-container {
+  margin-top: .9rem;
+  text-align: center;
+}
+
+.see-more-button {
+  display: inline-block;
+  padding: 1rem 3rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, #4b4b4b, #2e2e2e);
+  border-radius: 999px;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.05), 
+              0 0 20px rgba(0, 255, 255, 0.2);
+  transition: all 0.4s ease;
+}
+
+.see-more-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.4),
+              0 0 40px rgba(0, 255, 255, 0.2);
+}
+
+.see-more-button-wrapper {
+  position: relative;
+  display: inline-block;
+  padding: 1rem;
+}
+
+.orbit-dot {
+  width: 10px;
+  height: 10px;
+  background: cyan;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: center;
+  animation: orbit-around-outline 2s linear infinite;
+  box-shadow: 0 0 10px cyan, 0 0 20px rgba(0, 255, 255, 0.5);
+}
+
+/* Animations */
+@keyframes floatSmooth {
+  0%, 100% {
+    transform: translateY(0);
+    text-shadow: 
+      0 0 10px rgba(0, 255, 255, 0.6), 
+      0 0 20px rgba(122, 0, 255, 0.4);
+  }
+  50% {
+    transform: translateY(-6px);
+    text-shadow: 
+      0 4px 18px rgba(0, 255, 255, 0.8), 
+      0 0 28px rgba(122, 0, 255, 0.5);
+  }
+}
+
+@keyframes moveGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes iconBounce {
+  0%, 100% { transform: translateY(0); }
+  30% { transform: translateY(-5px); }
+  60% { transform: translateY(3px); }
+}
+
+@keyframes orbit-around-outline {
+  0% {
+    transform: rotate(0deg) translateX(calc((100% + 40px) / 2)) rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg) translateX(calc((100% + 24px) / 3)) rotate(-360deg);
+  }
+}
+
+@keyframes fadeInBackdrop {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeOutBackdrop {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes fadeZoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeZoomOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+}
+.close-button {
+  padding: 0.6rem 1.4rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background: linear-gradient(135deg, #ff0057, #ff7a00, #ffc400);
+  background-size: 300% 300%;
+  box-shadow: 0 0 10px rgba(255, 99, 132, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.close-button:hover {
+  animation: moveGradient 4s ease infinite;
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 0 20px rgba(255, 99, 132, 0.4),
+              0 0 35px rgba(255, 122, 0, 0.4);
+}
