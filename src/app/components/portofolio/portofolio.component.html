@@ -24,12 +24,12 @@
       <div 
   class="modal-backdrop" 
   *ngIf="shouldDisplayModal" 
-  [ngClass]="{ 'fade-out': isClosing }" 
+  [ngClass]="{ 'fade-in-backdrop': !isClosing, 'fade-out-backdrop': isClosing }"
   (click)="closeOverview()"
 >
       <div 
         class="modal-content" 
-        [ngClass]="{ 'fade-out-content': isClosing }" 
+        [ngClass]="{ 'fade-in-content': !isClosing, 'fade-out-content': isClosing }"
         (click)="$event.stopPropagation()"
       >
           <div class="modal-grid">
@@ -59,7 +59,7 @@
     </div>
     <div class="see-more-container">
       <div class="see-more-button-wrapper">
-        <div class="orbit-dot"></div>
+        <!-- <div class="orbit-dot"></div> -->
         <div class="orbit-track">
         </div>
         <a href="https://github.com/your-username" target="_blank" class="see-more-button">

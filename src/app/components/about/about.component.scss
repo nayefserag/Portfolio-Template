@@ -170,3 +170,61 @@ font-family: 'Montserrat';
     letter-spacing: normal;
   }
 }
+
+@media (max-width: 1024px) {
+  .about-section {
+    padding-left: 5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-section {
+    padding: 2rem 1rem;
+  }
+}
+.about-container {
+  width: 100%;
+  box-sizing: border-box;
+}
+@media (max-width: 1024px) and (min-width: 769px) {
+  .vertical-name {
+    font-size: 3rem;
+    left: -250px;
+    letter-spacing: 1rem;
+  }
+}
+@media (max-width: 768px) {
+  .about-title {
+    font-size: 2rem;
+  }
+
+  .about-text {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-title {
+    font-size: 1.75rem;
+  }
+
+  .about-text {
+    font-size: 0.95rem;
+  }
+}
+@media (max-width: 480px) {
+  .info-icons {
+    grid-template-columns: 1fr; /* 1 column on very small screens */
+    gap: 1.2rem;
+  }
+
+  .icon-item {
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 1rem;
+  }
+
+  .icon-text {
+    text-align: left;
+  }
+}

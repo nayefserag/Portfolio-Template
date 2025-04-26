@@ -204,6 +204,7 @@ Lumen (PHP Micro-framework), MySQL, Postman, PHPUnit, Nodemon, Git`
   openOverview(project: any) {
     this.selectedProject = project;
     this.shouldDisplayModal = true;
+    this.isClosing = false;
   }
   
 
@@ -214,7 +215,6 @@ Lumen (PHP Micro-framework), MySQL, Postman, PHPUnit, Nodemon, Git`
     setTimeout(() => {
       this.shouldDisplayModal = false;
       this.selectedProject = null;
-      this.isClosing = false;
     }, 400); // This should match your animation duration
   }
   
